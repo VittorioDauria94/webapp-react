@@ -1,24 +1,16 @@
-import { useEffect } from "react";
-import axios from "axios";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DefaultLayout from "./layout/DefaultLayout";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 
 function App() {
-  useEffect(() => {
-    axios.get(import.meta.env.VITE_BACKEND_URL).then((resp) => {
-      console.log(resp);
-    });
-  }, []);
-
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/movies" element={<Movies/>} />
+            <Route path="/movies" element={<Movies />} />
           </Route>
         </Routes>
       </BrowserRouter>
