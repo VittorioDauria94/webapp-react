@@ -24,8 +24,6 @@ export default function Header() {
               <li key={nav.id} className="nav-item">
                 <NavLink
                   to={nav.path}
-                  end={nav.path === "/"}
-                  onClick={close}
                   className={({ isActive }) =>
                     `nav-link boolflix-link ${isActive ? "active" : ""}`
                   }

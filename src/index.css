@@ -74,3 +74,62 @@
 .navbar-collapse.show .boolflix-search {
  margin-top: 20px;
 }
+
+
+/* ===== HOME ===== */
+.boolflix-home {
+  padding-top: 74px; 
+  background: rgb(0, 0, 0);
+  min-height: 100vh;
+}
+
+/* ===== HERO ===== */
+.boolflix-hero {
+  position: relative;
+  min-height: 80vh;
+  background-image: url("./assets/img/home_backgroud.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.boolflix-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 10%,
+    rgba(0, 0, 0, 0.4) 60%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+.boolflix-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.boolflix-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.boolflix-subtitle {
+  font-size: clamp(1.1rem, 2vw, 2rem);
+  color: rgb(229, 229, 229);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.boolflix-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
