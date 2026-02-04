@@ -245,3 +245,18 @@
   justify-content: center;
   align-items: center;
 }
+
+/* 404 */
+
+.boolflix-404 {
+  color: rgb(255, 255, 255);
+  font-size: clamp(4rem, 10vw, 7rem);
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.boolflix-404-text {
+  color: rgb(179, 179, 179);
+  margin-bottom: 2rem;
+}
