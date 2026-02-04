@@ -1,5 +1,9 @@
 import { useEffect } from "react";
 import axios from "axios";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DefaultLayout from "./layout/DefaultLayout";
+import Home from "./pages/Home";
+import Movies from "./pages/Movies";
 
 function App() {
   useEffect(() => {
@@ -8,7 +12,18 @@ function App() {
     });
   }, []);
 
-  return <></>;
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<DefaultLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/movies" element={<Movies/>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;

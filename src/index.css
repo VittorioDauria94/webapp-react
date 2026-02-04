@@ -1,0 +1,76 @@
+/* BOOLFLIX NAVBAR */
+.boolflix-navbar {
+    background: rgb(20, 20, 20);
+    height: 74px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+}
+
+/* BRAND */
+.boolflix-brand {
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: rgb(229, 9, 20);
+}
+
+/* LINKS */
+.boolflix-navbar .boolflix-link {
+    color: rgb(255, 255, 255);
+    opacity: 0.85;
+    font-weight: 500;
+}
+
+.boolflix-navbar .boolflix-link:hover {
+    opacity: 1;
+    color: rgb(255, 255, 255);
+}
+
+.boolflix-navbar .boolflix-link.active {
+    opacity: 1;
+    color: rgb(255, 255, 255);
+    position: relative;
+}
+
+.boolflix-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: rgb(229, 9, 20);
+}
+
+/* SEARCH */
+.boolflix-search input {
+    background: rgb(0, 0, 0);
+    border: 1px solid rgb(51, 51, 51);
+    color: rgb(255, 255, 255);
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.boolflix-search input::placeholder {
+    color: rgb(170, 170, 170);
+}
+
+.boolflix-search input:focus {
+    width: 260px;
+    background: rgb(0, 0, 0);
+    border-color: rgb(229, 9, 20);
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+}
+
+.boolflix-navbar .navbar-collapse {
+  background: rgb(20, 20, 20);
+  padding: 10px;
+  margin-top: 5px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.navbar-collapse.show .boolflix-search {
+ margin-top: 20px;
+}
