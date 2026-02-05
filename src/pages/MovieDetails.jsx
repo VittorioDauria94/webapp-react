@@ -1,19 +1,24 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ReviewsCard from "../components/ReviewsCard";
 import Loader from "../components/Loader";
 
 export default function MovieDetails() {
   const [movieDetails, setMovieDetails] = useState(null);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_MOVIES_URL}/${id}`)
       .then((resp) => {
         setMovieDetails(resp.data);
-        console.log(resp.data);
+      })
+      .catch((err) => {
+        if (err.response?.status === 404) {
+          navigate("*");
+        }
       });
   }, [id]);
 
@@ -50,7 +55,9 @@ export default function MovieDetails() {
                   {movieDetails.director}
                 </p>
 
-                <p className="boolflix-detail-abstract">{movieDetails.abstract}</p>
+                <p className="boolflix-detail-abstract">
+                  {movieDetails.abstract}
+                </p>
 
                 <div className="boolflix-detail-vote">
                   ⭐ {movieDetails.avg_vote ?? "—"}
@@ -66,7 +73,7 @@ export default function MovieDetails() {
                 <div className="row g-3 mt-1">
                   {movieDetails.movieReviews.map((rev) => (
                     <div className="col-md-6 col-lg-4" key={rev.id}>
-                      <ReviewsCard rev={rev}/>
+                      <ReviewsCard rev={rev} />
                     </div>
                   ))}
                 </div>
