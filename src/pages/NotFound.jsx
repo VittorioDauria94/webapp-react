@@ -6,11 +6,11 @@ export default function NotFound() {
       <div className="container">
         <h1 className="boolflix-404">404</h1>
         <p className="boolflix-404-text">
-          La pagina che stai cercando non esiste.
+          The page you are looking for does not exist.
         </p>
 
         <Link to="/" className="btn btn-danger btn-sm">
-          Torna alla home
+          Back to home
         </Link>
       </div>
     </main>

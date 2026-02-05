@@ -16,9 +16,9 @@ export default function Movies() {
       <div className="container py-5 mt-5">
         <div className="d-flex align-items-end justify-content-between mb-4">
           <div>
-            <h1 className="boolflix-page-title mb-1">Film</h1>
+            <h1 className="boolflix-page-title mb-1">Movies</h1>
             <p className="boolflix-page-sub mb-0">
-              Sfoglia il catalogo BoolFlix
+              Browse the BoolFlix catalog
             </p>
           </div>
         </div>

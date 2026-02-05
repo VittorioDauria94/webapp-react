@@ -41,7 +41,7 @@ export default function Header() {
             <input
               className="form-control"
               type="search"
-              placeholder="Titolo, genere, attore..."
+              placeholder="Title, genre, actor..."
             />
           </form>
         </div>
