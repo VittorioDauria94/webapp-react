@@ -6,12 +6,12 @@ import Loader from "../components/Loader";
 
 export default function MovieDetails() {
   const [movieDetails, setMovieDetails] = useState(null);
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_MOVIES_URL}/${id}`)
+      .get(`${import.meta.env.VITE_BACKEND_MOVIES_URL}/${slug}`)
       .then((resp) => {
         setMovieDetails(resp.data);
       })
@@ -20,7 +20,7 @@ export default function MovieDetails() {
           navigate("*");
         }
       });
-  }, [id]);
+  }, [slug]);
 
   return (
     <main className="boolflix-page">

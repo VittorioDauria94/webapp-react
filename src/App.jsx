@@ -13,7 +13,7 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/movies" element={<Movies />} />
-            <Route path="/movies/:id" element={<MovieDetails />} />
+            <Route path="/movies/:slug" element={<MovieDetails />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

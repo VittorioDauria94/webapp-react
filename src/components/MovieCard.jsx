@@ -22,7 +22,7 @@ export default function MovieCard({movie}) {
         <p className="boolflix-abstract">{movie.abstract}</p>
 
         <div className="d-flex gap-2 mt-auto">
-          <Link className="btn btn-danger btn-sm" to={`/movies/${movie.id}`}>
+          <Link className="btn btn-danger btn-sm" to={`/movies/${movie.slug}`}>
             Details
           </Link>
           <button className="btn btn-outline-light btn-sm" type="button">
