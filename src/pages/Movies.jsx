@@ -2,20 +2,24 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import { useSearchParams } from "react-router-dom";
+import MovieCardSkeleton from "../components/MovieCardSkeleton";
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
   const [searchParams] = useSearchParams();
   const search = searchParams.get("search");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(import.meta.env.VITE_BACKEND_MOVIES_URL, {
         params: { search },
       })
       .then((resp) => {
         setMovies(resp.data.result);
-      });
+      })
+      .finally(() => setLoading(false));
   }, [search]);
 
   return (
@@ -31,11 +35,17 @@ export default function Movies() {
         </div>
 
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
-          {movies.map((movie) => (
-            <div className="col" key={movie.id}>
-              <MovieCard movie={movie} />
-            </div>
-          ))}
+          {loading
+            ? Array.from({ length: 5 }).map((_, i) => (
+                <div className="col" key={i}>
+                  <MovieCardSkeleton />
+                </div>
+              ))
+            : movies.map((movie) => (
+                <div className="col" key={movie.id}>
+                  <MovieCard movie={movie} />
+                </div>
+              ))}
         </div>
       </div>
     </main>
