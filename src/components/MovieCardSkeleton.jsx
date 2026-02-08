@@ -33,7 +33,7 @@ export default function MovieCardSkeleton() {
           <span className="placeholder col-7"></span>
         </p>
 
-        <div className="d-flex gap-2 mt-auto placeholder-glow">
+        <div className="d-flex gap-2 mt-auto">
           <button className="btn btn-danger btn-sm disabled placeholder col-4"></button>
           <button className="btn btn-outline-light btn-sm disabled placeholder col-5"></button>
         </div>

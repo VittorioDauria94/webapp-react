@@ -382,6 +382,13 @@
   }
 }
 
+/* SKELETON */
+
+.boolflix-detail-poster.placeholder {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 16px;
+}
 
 
 /* ===== FOOTER ===== */

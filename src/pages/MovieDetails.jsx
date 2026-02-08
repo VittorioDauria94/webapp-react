@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ReviewsCard from "../components/ReviewsCard";
-import Loader from "../components/Loader";
+import MovieDetailsSkeleton from "../components/MoviesDetailsSkeleton";
 
 export default function MovieDetails() {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -14,6 +14,7 @@ export default function MovieDetails() {
       .get(`${import.meta.env.VITE_BACKEND_MOVIES_URL}/${slug}`)
       .then((resp) => {
         setMovieDetails(resp.data);
+        // setTimeout(() => setMovieDetails(resp.data), 2000);  // debug for skeleton
       })
       .catch((err) => {
         if (err.response?.status === 404) {
@@ -84,7 +85,7 @@ export default function MovieDetails() {
           </div>
         </section>
       ) : (
-        <Loader />
+        <MovieDetailsSkeleton />
       )}
     </main>
   );

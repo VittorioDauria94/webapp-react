@@ -19,7 +19,10 @@ export default function Movies() {
       .then((resp) => {
         setMovies(resp.data.result);
       })
-      .finally(() => setLoading(false));
+      .finally(
+        () => setLoading(false),
+        // setTimeout(() => setLoading(false), 2000), // debug for skeleton
+      );
   }, [search]);
 
   return (
