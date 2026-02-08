@@ -1,15 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
+import { useSearchParams } from "react-router-dom";
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
+  const [searchParams] = useSearchParams();
+  const search = searchParams.get("search");
 
   useEffect(() => {
-    axios.get(import.meta.env.VITE_BACKEND_MOVIES_URL).then((resp) => {
-      setMovies(resp.data.result);
-    });
-  }, []);
+    axios
+      .get(import.meta.env.VITE_BACKEND_MOVIES_URL, {
+        params: { search },
+      })
+      .then((resp) => {
+        setMovies(resp.data.result);
+      });
+  }, [search]);
 
   return (
     <main className="boolflix-page">

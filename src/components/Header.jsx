@@ -1,11 +1,19 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import navbarData from "../data/nav";
 import { useState } from "react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [search, setSearch] = useState("");
 
   const toggle = () => setIsOpen((open) => !open);
+  const navigate = useNavigate();
+
+  function handleSearch(e) {
+    e.preventDefault();
+    navigate(`/movies?search=${search}`);
+    setSearch("");
+  }
 
   return (
     <nav className="navbar navbar-expand-lg boolflix-navbar fixed-top">
@@ -36,12 +44,14 @@ export default function Header() {
 
           <form
             className="d-flex boolflix-search justify-content-center"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSearch}
           >
             <input
               className="form-control"
               type="search"
-              placeholder="Title, genre, actor..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Title, genre, director..."
             />
           </form>
         </div>
