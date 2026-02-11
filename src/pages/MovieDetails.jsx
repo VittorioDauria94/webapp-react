@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ReviewsCard from "../components/ReviewsCard";
 import MovieDetailsSkeleton from "../components/MoviesDetailsSkeleton";
+import ReviewForm from "../components/ReviewForm";
 
 export default function MovieDetails() {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -10,6 +11,10 @@ export default function MovieDetails() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    getMovieData();
+  }, [slug]);
+
+  function getMovieData() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_MOVIES_URL}/${slug}`)
       .then((resp) => {
@@ -21,7 +26,7 @@ export default function MovieDetails() {
           navigate("*");
         }
       });
-  }, [slug]);
+  }
 
   return (
     <main className="boolflix-page">
@@ -82,6 +87,7 @@ export default function MovieDetails() {
                 <p className="boolflix-empty">No reviews available.</p>
               )}
             </div>
+            <ReviewForm id={movieDetails.id} updateMovie={getMovieData} />
           </div>
         </section>
       ) : (
