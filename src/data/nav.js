@@ -9,6 +9,11 @@ const nav = [
     title: "Movies",
     path: "/movies",
   },
+  {
+    id: 3,
+    title: "New Movie",
+    path: "/movies/new",
+  },
 ];
 
 export default nav;

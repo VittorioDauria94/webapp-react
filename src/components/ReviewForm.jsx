@@ -19,10 +19,7 @@ export default function ReviewForm({ id, updateMovie }) {
     e.preventDefault();
 
     axios
-      .post(
-        `${import.meta.env.VITE_BACKEND_MOVIES_URL}/${id}/reviews`,
-        formData,
-      )
+      .post(`${import.meta.env.VITE_BACKEND_REVIEWS_URL}/${id}`, formData)
       .then((resp) => {
         updateMovie();
         setFormData(initialReviewFormData);

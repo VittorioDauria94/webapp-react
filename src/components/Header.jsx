@@ -1,10 +1,11 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import navbarData from "../data/nav";
 import { useState } from "react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const { pathname } = useLocation();
 
   const toggle = () => setIsOpen((open) => !open);
   const navigate = useNavigate();
@@ -13,6 +14,14 @@ export default function Header() {
     e.preventDefault();
     navigate(`/movies?search=${search}`);
     setSearch("");
+  }
+
+  function isNavActive(path, isActive) {
+    if (path === "/movies") {
+      return isActive && pathname !== "/movies/new";
+    }
+
+    return isActive;
   }
 
   return (
@@ -33,7 +42,9 @@ export default function Header() {
                 <NavLink
                   to={nav.path}
                   className={({ isActive }) =>
-                    `nav-link boolflix-link ${isActive ? "active" : ""}`
+                    `nav-link boolflix-link ${
+                      isNavActive(nav.path, isActive) ? "active" : ""
+                    }`
                   }
                 >
                   {nav.title}
